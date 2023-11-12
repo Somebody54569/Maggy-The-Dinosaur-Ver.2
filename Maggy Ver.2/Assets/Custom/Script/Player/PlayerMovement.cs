@@ -19,12 +19,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float timeSinceLastSpeedIncrease = 0f;
     [SerializeField] private float eatDistance = 12.5f;
     [SerializeField] private float rotationSpeed = 5;
+    [SerializeField] private float speedTakeHitDuration = 1.5f;
 
     [Header("Jump")]
     [SerializeField] private bool isJumping = false;
     [SerializeField] private bool comingDown = false;
     [SerializeField] private GameObject playerObject;
     [SerializeField] private float jumpForce = 1;
+    [SerializeField] private float jumpDuration = 0.45f;
     
     [Header("HP")]
     [SerializeField] private int startHP = 100;
@@ -54,14 +56,17 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Camera")] 
     [SerializeField] private CameraShake cameraShake;
-    
 
+
+    private void Awake()
+    {
+        playerInput = GetComponent<PlayerInput>();
+        playerMap = playerInput.actions.FindActionMap("Game");
+    }
 
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        playerInput = GetComponent<PlayerInput>();
-        playerMap = playerInput.actions.FindActionMap("Game");
         isDead = false;
         currentHP = startHP;
         audioSource = GetComponent<AudioSource>();
@@ -220,9 +225,9 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator JumpSequence()
     {
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(jumpDuration);
         comingDown = true;
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(jumpDuration);
         isJumping = false;
         comingDown = false;
         gameObject.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
@@ -324,21 +329,12 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator SpeedTakeHit()
     {
-        float beforeTakeHit;
-        float takeHitSpeed = 15;
-        beforeTakeHit = currentMoveSpeed;
-        currentMoveSpeed = takeHitSpeed;
+        float beforeTakeHit = currentMoveSpeed;
+        currentMoveSpeed = 15;
         timeSinceLastSpeedIncrease = 0f;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(speedTakeHitDuration);
         currentMoveSpeed = beforeTakeHit;
-        if (beforeTakeHit <= 15)
-        {
-            currentMoveSpeed = 15;
-        }
-        else
-        {
-            currentMoveSpeed -= 5;
-        }
+        currentMoveSpeed = Mathf.Max(currentMoveSpeed, 15); // Ensure it doesn't go below 15
         timeSinceLastSpeedIncrease = 0f;
     }
 }
