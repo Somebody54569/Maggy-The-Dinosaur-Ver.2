@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
+  m_Name: RemoteConfigDataStoreAsset
+  m_EditorClassIdentifier: 
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"68bd9b1e-6b99-4979-984a-e4a55416a35a\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"playerSpeed\",\r\n      \"type\": \"float\",\r\n     
+    \"value\": 15.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"61539886-20b7-4590-9047-cafcea30de2f\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"haveSpike\",\r\n      \"type\": \"bool\",\r\n      \"value\": false\r\n   
+    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"68bd9b1e-6b99-4979-984a-e4a55416a35a\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"playerSpeed\",\r\n      \"type\": \"float\",\r\n     
+    \"value\": 15.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"61539886-20b7-4590-9047-cafcea30de2f\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"haveSpike\",\r\n      \"type\": \"bool\",\r\n      \"value\": false\r\n   
+    }\r\n  }\r\n]"
+  _environments: "[\r\n  {\r\n    \"projectId\": \"7ebb3a68-ac51-480b-a612-2b8bc8dfb1ab\",\r\n   
+    \"name\": \"production\",\r\n    \"id\": \"acfff1e1-066b-4c7d-b89e-9f349482b1e6\",\r\n   
+    \"isDefault\": true,\r\n    \"createdAt\": \"2023-10-26T15:09:13Z\",\r\n    \"updatedAt\":
+    \"2023-10-26T15:09:13Z\"\r\n  },\r\n  {\r\n    \"projectId\": \"7ebb3a68-ac51-480b-a612-2b8bc8dfb1ab\",\r\n   
+    \"name\": \"development\",\r\n    \"id\": \"5407a898-3424-48b4-bdcf-73164b052773\",\r\n   
+    \"isDefault\": false,\r\n    \"createdAt\": \"2023-11-01T14:24:37Z\",\r\n   
+    \"updatedAt\": \"2023-11-01T14:24:37Z\"\r\n  }\r\n]"
