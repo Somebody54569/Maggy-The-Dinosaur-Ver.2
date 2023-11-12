@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Start()
     {
         isDead = false;
+        LevelDistance.disRun = 0;
         currentHP = startHP;
         audioSource = GetComponent<AudioSource>();
         healthBar.SetMaxHealth(startHP);
@@ -321,9 +322,15 @@ public class PlayerMovement : MonoBehaviour
             bannerAdExample.HideBannerAd();
             levelControl.GetComponent<LevelDistance>().enabled = false;
             yield return new WaitForSeconds(2f);
+            GameManager.gameManager.totalBones += CollectableControl.boneCount;
+            if (LevelDistance.disRun > GameManager.gameManager.highScore)
+            {
+                GameManager.gameManager.highScore = LevelDistance.disRun;
+            }
             infoDisplay.SetActive(false);
             endGamePanel.SetActive(true);
             controlPanel.SetActive(false);
+            
         }
     }
 
