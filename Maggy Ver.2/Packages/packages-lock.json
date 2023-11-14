@@ -157,6 +157,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.services.levelplay": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.services.push-notifications": {
       "version": "3.0.0-pre.1",
       "depth": 0,
