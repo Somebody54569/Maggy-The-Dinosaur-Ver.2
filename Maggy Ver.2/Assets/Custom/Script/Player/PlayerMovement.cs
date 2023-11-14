@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Services.RemoteConfig;
@@ -45,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject endGamePanel;
     [SerializeField] private GameObject infoDisplay;
     [SerializeField] private GameObject controlPanel;
+    [SerializeField] private GameObject totalBoneDisplay;
+    [SerializeField] private GameObject HighScoreDisplay;
     [SerializeField] private LayerMask preyLayer;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputActionMap playerMap;
@@ -322,11 +325,18 @@ public class PlayerMovement : MonoBehaviour
             bannerAdExample.HideBannerAd();
             levelControl.GetComponent<LevelDistance>().enabled = false;
             yield return new WaitForSeconds(2f);
-            GameManager.gameManager.totalBones += CollectableControl.boneCount;
+            int bones = PlayerPrefs.GetInt("totalBones");
+            bones += CollectableControl.boneCount;
+            PlayerPrefs.SetInt("totalBones",bones);
+            
             if (LevelDistance.disRun > GameManager.gameManager.highScore)
             {
-                GameManager.gameManager.highScore = LevelDistance.disRun;
+                int highScore = GameManager.gameManager.highScore;
+                highScore = LevelDistance.disRun;
+                PlayerPrefs.SetInt("highScore",highScore);
             }
+            totalBoneDisplay.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("totalBones").ToString();
+            HighScoreDisplay.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("highScore").ToString();
             infoDisplay.SetActive(false);
             endGamePanel.SetActive(true);
             controlPanel.SetActive(false);
