@@ -789,6 +789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Raptor_Animated_FBX_5K_Sandmale
       objectReference: {fileID: 0}
+    - target: {fileID: 2057230003193109971, guid: 1489e285bd7f7b149af4e9737cd26a95, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3087189030913126336, guid: 1489e285bd7f7b149af4e9737cd26a95, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -1891,6 +1895,10 @@ PrefabInstance:
     - target: {fileID: 3945911203937595780, guid: 329c55f4b62b42746b94760afab107bc, type: 3}
       propertyPath: m_Name
       value: Stegasaurus_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945911203937595780, guid: 329c55f4b62b42746b94760afab107bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4180422942957636823, guid: 329c55f4b62b42746b94760afab107bc, type: 3}
       propertyPath: m_Controller
@@ -3145,6 +3153,7 @@ PrefabInstance:
     - {fileID: 3851307191616239142, guid: 5525222b750c2614e94a0c1ce284917e, type: 3}
     - {fileID: 4885156763295388241, guid: 5525222b750c2614e94a0c1ce284917e, type: 3}
     - {fileID: 8558335672641228613, guid: 5525222b750c2614e94a0c1ce284917e, type: 3}
+    - {fileID: 6022423727943057097, guid: 5525222b750c2614e94a0c1ce284917e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5525222b750c2614e94a0c1ce284917e, type: 3}
@@ -5471,6 +5480,10 @@ PrefabInstance:
     - target: {fileID: 8772693103843231552, guid: 96c1b02a29de12e4a8aa2acd97bcd7bf, type: 3}
       propertyPath: m_Name
       value: Pachycephalasaurus_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772693103843231552, guid: 96c1b02a29de12e4a8aa2acd97bcd7bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
