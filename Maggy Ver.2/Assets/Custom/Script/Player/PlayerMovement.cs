@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject endGamePanel;
     [SerializeField] private GameObject infoDisplay;
     [SerializeField] private GameObject controlPanel;
+    [SerializeField] private GameObject cameraPanel;
+    [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject totalBoneDisplay;
     [SerializeField] private GameObject HighScoreDisplay;
     [SerializeField] private LayerMask preyLayer;
@@ -339,7 +341,9 @@ public class PlayerMovement : MonoBehaviour
             HighScoreDisplay.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("highScore").ToString();
             infoDisplay.SetActive(false);
             endGamePanel.SetActive(true);
+            cameraPanel.SetActive(false);
             controlPanel.SetActive(false);
+            pausePanel.SetActive(false);
             
         }
     }
