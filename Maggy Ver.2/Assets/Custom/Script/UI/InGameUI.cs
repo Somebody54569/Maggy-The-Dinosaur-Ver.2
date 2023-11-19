@@ -25,7 +25,6 @@ public class InGameUI : MonoBehaviour
     public void ResumeGame()
         {
             Time.timeScale = 1;
-            bannerAdExample.ShowBannerAd();
         }
 
     public void RestartGame()
