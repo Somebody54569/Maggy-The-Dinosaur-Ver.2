@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float eatDistance = 12.5f;
     [SerializeField] private float rotationSpeed = 5;
     [SerializeField] private float speedTakeHitDuration = 1.5f;
+    [SerializeField] private Light light;
 
     [Header("Jump")]
     [SerializeField] private bool isJumping = false;
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int currentHP = 100;
     [SerializeField] private float hpDecreaseRate = 2f;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private TakeDamageFlash takeDamageFlash;
     public bool isDead;
 
     [Header("Level Boundary")] 
@@ -76,6 +78,9 @@ public class PlayerMovement : MonoBehaviour
         LevelDistance.disRun = 0;
         currentHP = startHP;
         audioSource = GetComponent<AudioSource>();
+        takeDamageFlash = GameObject.Find("PostProcessing").GetComponent<TakeDamageFlash>();
+        light = GameObject.Find("Spot Light").GetComponent<Light>();
+        light.range = eatDistance;
         healthBar.SetMaxHealth(startHP);
         currentMoveSpeed = initialMoveSpeed;
         StartCoroutine(DecreaseHPOverTime());
@@ -246,10 +251,12 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(start, transform.forward, out RaycastHit hit, eatDistance, preyLayer))
         {
             Gizmos.color = Color.red;
+            light.color = Color.red;
         }
         else
         {
             Gizmos.color = Color.green;
+            light.color = Color.green;
         }
         Gizmos.DrawLine(start, end);
     }
@@ -259,6 +266,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Prey"))
         {
             Debug.Log("Hit prey");
+            StartCoroutine(takeDamageFlash.TakeDamageEffect());
             Destroy(other.gameObject);
             int damageAmount = 10;
             DecreaseHP(damageAmount);
@@ -269,6 +277,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             Debug.Log($"Hit Obstacle: {other.gameObject.name}");
+            StartCoroutine(takeDamageFlash.TakeDamageEffect());
             Destroy(other.gameObject);
             int damageAmount = 20;
             DecreaseHP(damageAmount);
@@ -279,6 +288,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Hit Enemy");
+            StartCoroutine(takeDamageFlash.TakeDamageEffect());
             int damageAmount = 10;
             DecreaseHP(damageAmount);
             cameraShake.Shake();

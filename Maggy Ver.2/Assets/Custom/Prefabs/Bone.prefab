@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4825843065730087053}
   - component: {fileID: 1736511281089858719}
   - component: {fileID: 4570669538203374544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bone
   m_TagString: Bone
   m_Icon: {fileID: 0}
@@ -144,6 +144,10 @@ PrefabInstance:
     - target: {fileID: 1164456737922898, guid: 59f35b235fd106e4fbc636fdb2630276, type: 3}
       propertyPath: m_Name
       value: bone1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164456737922898, guid: 59f35b235fd106e4fbc636fdb2630276, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4079419567503996, guid: 59f35b235fd106e4fbc636fdb2630276, type: 3}
       propertyPath: m_LocalScale.x
