@@ -10,6 +10,7 @@ public class BoneCollect : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             CollectableControl.boneCount += 1;
+            SoundManager.instance.Play(SoundManager.SoundName.CollectItem);
             Destroy(this.gameObject);
         }
     }

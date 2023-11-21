@@ -21,4 +21,9 @@ public class MainMenuFunction : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void PlaySound()
+    {
+        SoundManager.instance.Play(SoundManager.SoundName.ButtonClicked);
+    }
 }

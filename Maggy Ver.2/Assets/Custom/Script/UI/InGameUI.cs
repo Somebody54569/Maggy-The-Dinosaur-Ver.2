@@ -36,4 +36,10 @@ public class InGameUI : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void PlaySound()
+    {
+        SoundManager.instance.Play(SoundManager.SoundName.ButtonClicked);
+    }
+    
 }

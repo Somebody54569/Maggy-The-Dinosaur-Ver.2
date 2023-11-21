@@ -40,7 +40,7 @@ public class ScreenshotManager : MonoBehaviour
 
     public void Capture()
     {
-        
+        SoundManager.instance.Play(SoundManager.SoundName.TakePhoto);
         StartCoroutine(TakeScreenShot());
         capturePanel.SetActive(false);
         StartCoroutine(wait());

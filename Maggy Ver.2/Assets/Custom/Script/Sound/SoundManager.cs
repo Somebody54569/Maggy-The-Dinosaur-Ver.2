@@ -11,9 +11,13 @@ public class SoundManager : MonoBehaviour
     public static bool hasIntance => _instance != null;
     public enum SoundName
     {
-        PlayrBites,
+        PlayerBites,
         HitPlayer,
-        CollectItem
+        CollectItem,
+        PlayerJump,
+        PlayerDeath,
+        ButtonClicked,
+        TakePhoto
     }
 
     [SerializeField] private Sound[] _sounds;

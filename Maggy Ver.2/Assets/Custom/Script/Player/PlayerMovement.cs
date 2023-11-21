@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxBoundary = 10f;
     
     [Header("Object")]
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject levelControl;
     [SerializeField] private GameObject endGamePanel;
     [SerializeField] private GameObject infoDisplay;
@@ -77,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
         isDead = false;
         LevelDistance.disRun = 0;
         currentHP = startHP;
-        audioSource = GetComponent<AudioSource>();
         takeDamageFlash = GameObject.Find("PostProcessing").GetComponent<TakeDamageFlash>();
         light = GameObject.Find("Spot Light").GetComponent<Light>();
         light.range = eatDistance;
@@ -194,10 +192,12 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Hit object: " + hit.collider.gameObject.name);
                 if (hit.collider.CompareTag("Prey"))
                 {
+                    SoundManager.instance.Play(SoundManager.SoundName.PlayerBites);
                     Debug.Log("Eating Prey!");
                     Destroy(hit.collider.gameObject);
                     IncreaseHP(10);
                     Debug.Log("Prey destroyed.");
+                    
                 }
             }
             else
@@ -217,6 +217,7 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = true;
                 playerObject.GetComponent<Animator>().SetTrigger("isJumping");
                 StartCoroutine(JumpSequence());
+                SoundManager.instance.Play(SoundManager.SoundName.PlayerJump);
             }
         }
 
@@ -266,6 +267,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Prey"))
         {
             Debug.Log("Hit prey");
+            SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
             StartCoroutine(takeDamageFlash.TakeDamageEffect());
             Destroy(other.gameObject);
             int damageAmount = 10;
@@ -277,6 +279,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             Debug.Log($"Hit Obstacle: {other.gameObject.name}");
+            SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
             StartCoroutine(takeDamageFlash.TakeDamageEffect());
             Destroy(other.gameObject);
             int damageAmount = 20;
@@ -288,6 +291,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Hit Enemy");
+            SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
             StartCoroutine(takeDamageFlash.TakeDamageEffect());
             int damageAmount = 10;
             DecreaseHP(damageAmount);
@@ -332,6 +336,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead)
         {
+            SoundManager.instance.Play(SoundManager.SoundName.PlayerDeath);
             currentMoveSpeed = 0;
             playerObject.GetComponent<Animator>().SetBool("isDead", true);
             bannerAdExample.HideBannerAd();
