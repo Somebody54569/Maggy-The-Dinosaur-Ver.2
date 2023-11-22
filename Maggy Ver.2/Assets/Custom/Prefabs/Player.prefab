@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 8010929157777851548}
   - component: {fileID: 5585166490297089350}
   - component: {fileID: 5942585870060990314}
-  - component: {fileID: 7588010779320628223}
   - component: {fileID: 5087673288842274558}
   - component: {fileID: 7138778043340971743}
   m_Layer: 7
@@ -199,24 +198,8 @@ MonoBehaviour:
   interstitialAdExample: {fileID: 0}
   bannerAdExample: {fileID: 0}
   cameraShake: {fileID: 0}
---- !u!114 &7588010779320628223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658271794448330336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62eda1411579d5848885d1ceea35413c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skinMaterials:
-  - {fileID: 2100000, guid: 6813afe062b029445af1401baecb2f9f, type: 2}
-  - {fileID: 2100000, guid: ea66459eca1339147b7d47e1286caff1, type: 2}
-  - {fileID: 2100000, guid: 8202284ba263c434a9ab6585e1cda675, type: 2}
-  - {fileID: 2100000, guid: dbaca8ab0b07c324cac6b54981cda867, type: 2}
-  - {fileID: 2100000, guid: 3e4060d907cd50d499b3d225090d81d4, type: 2}
+  skinMaterials: []
+  skinIndex: 0
   skinnedMeshRenderer: {fileID: 0}
 --- !u!114 &5087673288842274558
 MonoBehaviour:
@@ -364,7 +347,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: NaN, y: NaN, z: 0.08203125, w: 190}
+  m_BoundingSphereOverride: {x: 0.0390625, y: NaN, z: 14, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -424,7 +407,7 @@ PrefabInstance:
     - target: {fileID: 1003275558977028742, guid: fd03a296e0bd90343baab9c1aa106c37, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 16e48d3be13f7b54993823807c430bba, type: 2}
+      objectReference: {fileID: 2100000, guid: dbaca8ab0b07c324cac6b54981cda867, type: 2}
     - target: {fileID: 1089438250969621046, guid: fd03a296e0bd90343baab9c1aa106c37, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -751,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025175817463146691, guid: fd03a296e0bd90343baab9c1aa106c37, type: 3}
       propertyPath: m_Name
-      value: Raptor_Animated_FBX_5K_Blue
+      value: Raptor
       objectReference: {fileID: 0}
     - target: {fileID: 7025175817463146691, guid: fd03a296e0bd90343baab9c1aa106c37, type: 3}
       propertyPath: m_Layer

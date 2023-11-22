@@ -50,10 +50,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject cameraPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject totalBoneDisplay;
-    [SerializeField] private GameObject HighScoreDisplay;
+    [SerializeField] private GameObject highScoreDisplay;
     [SerializeField] private LayerMask preyLayer;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputActionMap playerMap;
+    [SerializeField] private PlayerMovement playerMovement;
     
 
     [Header("Ads")]
@@ -63,16 +64,28 @@ public class PlayerMovement : MonoBehaviour
     [Header("Camera")] 
     [SerializeField] private CameraShake cameraShake;
 
+    [Header("Skin")] 
+    [SerializeField] private Material[] skinMaterials;
+    [SerializeField] private int skinIndex;
+    [SerializeField] private SkinnedMeshRenderer skinnedMeshRenderer;
+
 
     private void Awake()
     {
+        skinnedMeshRenderer = FindObjectOfType<SkinnedMeshRenderer>();
+        skinIndex = PlayerPrefs.GetInt("SelectedSkin", 0);
+        Material[] playerMat = skinnedMeshRenderer.sharedMaterials;
+        playerMat[0] = skinMaterials[skinIndex];
+        skinnedMeshRenderer.sharedMaterials = playerMat;
         playerInput = GetComponent<PlayerInput>();
         playerMap = playerInput.actions.FindActionMap("Game");
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Start is called before the first frame update
     IEnumerator Start()
     {
+        playerMovement.enabled = true;
         isDead = false;
         LevelDistance.disRun = 0;
         currentHP = startHP;
@@ -337,10 +350,12 @@ public class PlayerMovement : MonoBehaviour
         if (isDead)
         {
             SoundManager.instance.Play(SoundManager.SoundName.PlayerDeath);
+            
             currentMoveSpeed = 0;
             playerObject.GetComponent<Animator>().SetBool("isDead", true);
             bannerAdExample.HideBannerAd();
             levelControl.GetComponent<LevelDistance>().enabled = false;
+            
             yield return new WaitForSeconds(2f);
             int bones = PlayerPrefs.GetInt("totalBones");
             bones += CollectableControl.boneCount;
@@ -353,13 +368,14 @@ public class PlayerMovement : MonoBehaviour
                 PlayerPrefs.SetInt("highScore",highScore);
             }
             totalBoneDisplay.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("totalBones").ToString();
-            HighScoreDisplay.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("highScore").ToString();
+            highScoreDisplay.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("highScore").ToString();
             infoDisplay.SetActive(false);
             endGamePanel.SetActive(true);
             cameraPanel.SetActive(false);
             controlPanel.SetActive(false);
             pausePanel.SetActive(false);
-            
+            Destroy(light);
+            Destroy(playerMovement);
         }
     }
 

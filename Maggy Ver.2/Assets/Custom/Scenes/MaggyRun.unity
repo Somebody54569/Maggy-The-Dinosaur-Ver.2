@@ -1484,7 +1484,7 @@ MonoBehaviour:
   zPos: 120
   creatingSection: 0
   secNum: 0
-  playerTransform: {fileID: 1970331611}
+  playerTransform: {fileID: 7117804708468218376}
 --- !u!114 &489654473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4497,6 +4497,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1436313062}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1428105322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4792,6 +4804,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2091642441}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1480537989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4952,7 +4976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2bf3f3acc06bb4eb6ff78483598fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1970331611}
+  player: {fileID: 7117804708468218376}
   smoothSpeed: 0.125
   offset: {x: 26, y: 23, z: -8}
 --- !u!114 &1580927534
@@ -5128,6 +5152,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: InGameUI, Assembly-CSharp
         m_MethodName: PlaySound
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1436313062}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6557,11 +6593,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904526924}
   m_CullTransparentMesh: 1
---- !u!4 &1970331611 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2090781113989460659, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
-  m_PrefabInstance: {fileID: 9206615424596584635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1973243577
 GameObject:
   m_ObjectHideFlags: 0
@@ -7579,6 +7610,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113216053}
   m_CullTransparentMesh: 1
+--- !u!4 &7117804708468218376 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2090781113989460659, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+  m_PrefabInstance: {fileID: 9206615424596584635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9206615424596584635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7631,6 +7667,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2296868364555095436, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dbaca8ab0b07c324cac6b54981cda867, type: 2}
     - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: healthBar
       value: 
@@ -7672,28 +7712,64 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 353840363}
     - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: highScoreDisplay
+      value: 
+      objectReference: {fileID: 353840363}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: totalBoneDisplay
       value: 
       objectReference: {fileID: 670732993}
     - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: skinnedMeshRenderer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: interstitialAdExample
       value: 
       objectReference: {fileID: 1165546212}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: skinMaterials.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: skinMaterials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6813afe062b029445af1401baecb2f9f, type: 2}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: skinMaterials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ea66459eca1339147b7d47e1286caff1, type: 2}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: skinMaterials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8202284ba263c434a9ab6585e1cda675, type: 2}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: skinMaterials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: dbaca8ab0b07c324cac6b54981cda867, type: 2}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: skinMaterials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e4060d907cd50d499b3d225090d81d4, type: 2}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: skinMaterials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e4060d907cd50d499b3d225090d81d4, type: 2}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 2.4232723e+20
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 2.1498682e-10
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 7.3153977e+34
+      value: 0.099609375
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 2.368641e+20
+      value: 0.1328125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

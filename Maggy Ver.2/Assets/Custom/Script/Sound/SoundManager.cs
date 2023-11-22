@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
 
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private List<AudioSource> sfxSources = new List<AudioSource>();
     [SerializeField] private AudioSource bgmSource;
     
     public enum SoundName
@@ -34,16 +34,19 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
+    
 
     public void Play(SoundName name)
     {
         Sound sound = GetSound(name);
         if (sound.audioSource == null)
         {
-            sound.audioSource = FindObjectOfType<AudioSource>();
+            sound.audioSource = gameObject.AddComponent<AudioSource>();
+            sfxSources.Add(sound.audioSource);
             sound.audioSource.clip = sound.clip;
-            sound.audioSource.volume = sound.volume;
+            sound.audioSource.volume = PlayerPrefs.GetFloat("SFX Volume", 1);
             sound.audioSource.loop = sound.loop;
         }
 
@@ -62,16 +65,27 @@ public class SoundManager : MonoBehaviour
     
     public void ToggleSFX()
     {
-        sfxSource.mute = !sfxSource.mute;
+        foreach (AudioSource source in sfxSources)
+        {
+            source.mute = !source.mute;
+        }
+        
     }
 
     public void MusicVolume(float volume)
     {
-        bgmSource.volume = volume;
+        PlayerPrefs.SetFloat("BGM Volume", volume);
+        bgmSource.volume = PlayerPrefs.GetFloat("BGM Volume", 1);
     }
     
     public void SFXVolume(float volume)
     {
-        sfxSource.volume = volume;
+        PlayerPrefs.SetFloat("SFX Volume", volume);
+        for (int i = 0; i < sfxSources.Count; i++)
+        {
+            sfxSources[i].volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+        }
+            
+        
     }
 }
