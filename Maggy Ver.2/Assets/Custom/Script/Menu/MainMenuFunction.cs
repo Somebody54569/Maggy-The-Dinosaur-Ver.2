@@ -26,4 +26,9 @@ public class MainMenuFunction : MonoBehaviour
     {
         SoundManager.instance.Play(SoundManager.SoundName.ButtonClicked);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

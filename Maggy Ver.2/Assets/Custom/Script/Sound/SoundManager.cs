@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    private static SoundManager _instance;
-    public static SoundManager instance => _instance;
+    public static SoundManager instance;
 
-    public static bool hasIntance => _instance != null;
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource bgmSource;
+    
     public enum SoundName
     {
         PlayerBites,
@@ -24,16 +25,15 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance == null)
+        if (instance == null)
         {
-            _instance = this;
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this);
-            return;
+            Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     public void Play(SoundName name)
@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour
         Sound sound = GetSound(name);
         if (sound.audioSource == null)
         {
-            sound.audioSource = gameObject.AddComponent<AudioSource>();
+            sound.audioSource = FindObjectOfType<AudioSource>();
             sound.audioSource.clip = sound.clip;
             sound.audioSource.volume = sound.volume;
             sound.audioSource.loop = sound.loop;
@@ -53,5 +53,25 @@ public class SoundManager : MonoBehaviour
     private Sound GetSound(SoundName name)
     {
         return Array.Find(_sounds, s => s.soundName == name);
+    }
+
+    public void ToggleBGM()
+    {
+        bgmSource.mute = !bgmSource.mute;
+    }
+    
+    public void ToggleSFX()
+    {
+        sfxSource.mute = !sfxSource.mute;
+    }
+
+    public void MusicVolume(float volume)
+    {
+        bgmSource.volume = volume;
+    }
+    
+    public void SFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
     }
 }

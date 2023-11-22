@@ -35,6 +35,7 @@ public class InGameUI : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
+        bannerAdExample.HideBannerAd();
     }
 
     public void PlaySound()
