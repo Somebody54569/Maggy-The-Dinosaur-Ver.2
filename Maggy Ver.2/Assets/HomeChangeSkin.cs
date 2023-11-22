@@ -10,7 +10,7 @@ public class HomeChangeSkin : MonoBehaviour
     [SerializeField] private SkinnedMeshRenderer skinnedMeshRenderer;
     private void Awake()
     {
-        skinnedMeshRenderer = FindObjectOfType<SkinnedMeshRenderer>();
+        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
     }
 
     private void Update()
