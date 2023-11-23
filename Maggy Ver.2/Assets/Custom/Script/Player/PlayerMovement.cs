@@ -361,10 +361,9 @@ public class PlayerMovement : MonoBehaviour
             bones += CollectableControl.boneCount;
             PlayerPrefs.SetInt("totalBones",bones);
             
-            if (LevelDistance.disRun > GameManager.gameManager.highScore)
+            if (LevelDistance.disRun > PlayerPrefs.GetInt("highScore", 0))
             {
-                int highScore = GameManager.gameManager.highScore;
-                highScore = LevelDistance.disRun;
+                int highScore = LevelDistance.disRun;
                 PlayerPrefs.SetInt("highScore",highScore);
             }
             totalBoneDisplay.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("totalBones").ToString();
