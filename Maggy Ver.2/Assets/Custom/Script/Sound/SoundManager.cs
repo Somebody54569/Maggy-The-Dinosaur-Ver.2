@@ -18,7 +18,9 @@ public class SoundManager : MonoBehaviour
         PlayerJump,
         PlayerDeath,
         ButtonClicked,
-        TakePhoto
+        TakePhoto,
+        ShieldUp,
+        ShieldDown
     }
 
     [SerializeField] private Sound[] _sounds;
@@ -34,7 +36,7 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+        bgmSource.volume = PlayerPrefs.GetFloat("BGM Volume", 1);
     }
     
 

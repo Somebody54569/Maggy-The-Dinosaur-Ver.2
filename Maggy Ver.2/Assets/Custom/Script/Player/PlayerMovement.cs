@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float hpDecreaseRate = 2f;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private TakeDamageFlash takeDamageFlash;
+    [SerializeField] private bool isHpDecreaseStopped = false;
     public bool isDead;
 
     [Header("Level Boundary")] 
@@ -55,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputActionMap playerMap;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private GameObject dome;
     
 
     [Header("Ads")]
@@ -80,6 +82,8 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerMap = playerInput.actions.FindActionMap("Game");
         playerMovement = GetComponent<PlayerMovement>();
+        dome = GameObject.Find("Dome");
+        dome.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -87,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerMovement.enabled = true;
         isDead = false;
+        isHpDecreaseStopped = false;
         LevelDistance.disRun = 0;
         currentHP = startHP;
         takeDamageFlash = GameObject.Find("PostProcessing").GetComponent<TakeDamageFlash>();
@@ -279,37 +284,53 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Prey"))
         {
-            Debug.Log("Hit prey");
-            SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
-            StartCoroutine(takeDamageFlash.TakeDamageEffect());
+            //Debug.Log("Hit prey");
+            if (!isHpDecreaseStopped)
+            {
+                SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
+                StartCoroutine(takeDamageFlash.TakeDamageEffect());
+                int damageAmount = 10;
+                DecreaseHP(damageAmount);
+                cameraShake.Shake();
+                StartCoroutine(SpeedTakeHit());
+            }
+            
             Destroy(other.gameObject);
-            int damageAmount = 10;
-            DecreaseHP(damageAmount);
-            cameraShake.Shake();
-            StartCoroutine(SpeedTakeHit());
         }
 
         if (other.CompareTag("Obstacle"))
         {
-            Debug.Log($"Hit Obstacle: {other.gameObject.name}");
-            SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
-            StartCoroutine(takeDamageFlash.TakeDamageEffect());
+            //Debug.Log($"Hit Obstacle: {other.gameObject.name}");
+            if (!isHpDecreaseStopped)
+            {
+                SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
+                            StartCoroutine(takeDamageFlash.TakeDamageEffect());
+                            int damageAmount = 20;
+                            DecreaseHP(damageAmount);
+                            cameraShake.Shake();
+                            StartCoroutine(SpeedTakeHit());
+            }
             Destroy(other.gameObject);
-            int damageAmount = 20;
-            DecreaseHP(damageAmount);
-            cameraShake.Shake();
-            StartCoroutine(SpeedTakeHit());
         }
 
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Hit Enemy");
-            SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
-            StartCoroutine(takeDamageFlash.TakeDamageEffect());
-            int damageAmount = 10;
-            DecreaseHP(damageAmount);
-            cameraShake.Shake();
-            StartCoroutine(SpeedTakeHit());
+            if (isHpDecreaseStopped)
+            {
+                Destroy(other.gameObject);
+                
+            }
+            else
+            {
+                //Debug.Log("Hit Enemy");
+                SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
+                StartCoroutine(takeDamageFlash.TakeDamageEffect());
+                int damageAmount = 10;
+                DecreaseHP(damageAmount);
+                cameraShake.Shake();
+                StartCoroutine(SpeedTakeHit());
+            }
+            
         }
     }
 
@@ -317,9 +338,13 @@ public class PlayerMovement : MonoBehaviour
     {
         while (!isDead)
         {
-            int damageAmount = 1;
-            DecreaseHP(damageAmount);
-            Debug.Log($"HP : {currentHP}");
+            if (!isHpDecreaseStopped)
+            {
+                int damageAmount = 1;
+                DecreaseHP(damageAmount);
+                Debug.Log($"HP : {currentHP}");
+            }
+
             yield return new WaitForSeconds(hpDecreaseRate);
         }
     }
@@ -387,5 +412,25 @@ public class PlayerMovement : MonoBehaviour
         currentMoveSpeed = beforeTakeHit;
         currentMoveSpeed = Mathf.Max(currentMoveSpeed, 15); // Ensure it doesn't go below 15
         timeSinceLastSpeedIncrease = 0f;
+    }
+    
+    public void StopHealthDecrease()
+    {
+        isHpDecreaseStopped = true;
+    }
+    
+    public void PreventDamage(float duration)
+    {
+        StartCoroutine(PreventDamageRoutine(duration));
+    }
+    
+    private IEnumerator PreventDamageRoutine(float duration)
+    {
+        dome.SetActive(true);
+        SoundManager.instance.Play(SoundManager.SoundName.ShieldUp);
+        yield return new WaitForSeconds(duration);
+        isHpDecreaseStopped = false;
+        dome.SetActive(false);
+        SoundManager.instance.Play(SoundManager.SoundName.ShieldDown);
     }
 }
