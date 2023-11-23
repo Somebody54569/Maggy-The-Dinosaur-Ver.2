@@ -17,7 +17,7 @@ public class HealthDecreaseStop : MonoBehaviour
 
     private void Start()
     {
-        rdNum = Random.Range(0, 1);
+        rdNum = Random.Range(0, 5);
         if (rdNum == 0)
         {
             gameObject.SetActive(true);
