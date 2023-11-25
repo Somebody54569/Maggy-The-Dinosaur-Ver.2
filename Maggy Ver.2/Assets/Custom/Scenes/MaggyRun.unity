@@ -5554,6 +5554,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1071938380691670482, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071938380691670482, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1172887997458992108, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5634,6 +5642,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1354942434235574098, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354942434235574098, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354942434235574098, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1417745739290957198, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -5645,6 +5665,14 @@ PrefabInstance:
     - target: {fileID: 1417745739290957198, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: InGameUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307260289023650859, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307260289023650859, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2891609950955780819, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5758,6 +5786,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7857636902066146005, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7857636902066146005, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7857636902066146005, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8165084433736667120, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -5806,7 +5846,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1172887997458992108, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 110591992}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2063b39c3506e674d94b13fa323caf91, type: 3}
@@ -8066,19 +8106,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3e4060d907cd50d499b3d225090d81d4, type: 2}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -3.3903418e+29
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 4.9e-44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 6e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 1.3e-44
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
