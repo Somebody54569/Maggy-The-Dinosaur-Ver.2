@@ -289,7 +289,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 SoundManager.instance.Play(SoundManager.SoundName.HitPlayer);
                 StartCoroutine(takeDamageFlash.TakeDamageEffect());
-                int damageAmount = 10;
+                int damageAmount = 5;
                 DecreaseHP(damageAmount);
                 cameraShake.Shake();
                 StartCoroutine(SpeedTakeHit());
