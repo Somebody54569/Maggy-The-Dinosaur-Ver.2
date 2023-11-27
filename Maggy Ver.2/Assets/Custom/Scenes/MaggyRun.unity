@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1276,7 +1276,7 @@ RectTransform:
   m_GameObject: {fileID: 341180886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3536, y: 1.3536, z: 1.3536}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1322781608}
@@ -1284,7 +1284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -834.99994, y: -415.14734}
+  m_AnchoredPosition: {x: -823, y: -439}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &341180888
@@ -5286,7 +5286,7 @@ RectTransform:
   m_GameObject: {fileID: 1352655816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3536326, y: 1.3536326, z: 1.3536326}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2046198373}
@@ -5294,7 +5294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 835, y: -200}
+  m_AnchoredPosition: {x: 872, y: -308}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1352655818
@@ -8692,7 +8692,7 @@ RectTransform:
   m_GameObject: {fileID: 1904526924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0360954, y: 1.0360954, z: 1.0360954}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1543232800}
@@ -8700,7 +8700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 724, y: -415}
+  m_AnchoredPosition: {x: 583, y: -440}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1904526926
@@ -10201,6 +10201,10 @@ PrefabInstance:
     - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: maxMoveSpeed
       value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: hpDecreaseRate
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: bannerAdExample
