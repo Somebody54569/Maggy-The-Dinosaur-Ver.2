@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
@@ -8,6 +9,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
+    private PlayerMovement playerMovement;
 
     void Awake()
     {
@@ -20,6 +22,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
 
         // Disable the button until the ad is ready to show:
         _showAdButton.interactable = false;
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Call this public method when you want to get an ad ready to show.
@@ -60,7 +63,11 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
-            CollectableControl.boneCount *= 2;
+            int bones = PlayerPrefs.GetInt("totalBones");
+            bones -= CollectableControl.boneCount;
+            int boneAfterAds = CollectableControl.boneCount *= 2;
+            PlayerPrefs.SetInt("totalBones",bones + boneAfterAds);
+            playerMovement.totalBoneDisplay.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("totalBones").ToString();
         }
     }
 

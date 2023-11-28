@@ -50,14 +50,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject controlPanel;
     [SerializeField] private GameObject cameraPanel;
     [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject totalBoneDisplay;
+    
     [SerializeField] private GameObject highScoreDisplay;
     [SerializeField] private LayerMask preyLayer;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputActionMap playerMap;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private GameObject dome;
-    
+    public GameObject totalBoneDisplay;
 
     [Header("Ads")]
     [SerializeField] private InterstitialAdExample interstitialAdExample;
