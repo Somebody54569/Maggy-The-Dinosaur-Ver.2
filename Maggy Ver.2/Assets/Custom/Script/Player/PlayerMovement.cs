@@ -95,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
         LevelDistance.disRun = 0;
         currentHP = startHP;
         takeDamageFlash = GameObject.Find("PostProcessing").GetComponent<TakeDamageFlash>();
-        light = GameObject.Find("Spot Light").GetComponent<Light>();
         light.range = eatDistance;
         healthBar.SetMaxHealth(startHP);
         currentMoveSpeed = initialMoveSpeed;

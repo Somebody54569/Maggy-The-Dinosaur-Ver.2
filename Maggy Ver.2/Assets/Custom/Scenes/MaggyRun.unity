@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1276,7 +1276,7 @@ RectTransform:
   m_GameObject: {fileID: 341180886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3536, y: 1.3536, z: 1.3536}
+  m_LocalScale: {x: 1.676569, y: 1.676569, z: 1.676569}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1322781608}
@@ -1284,7 +1284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -823, y: -439}
+  m_AnchoredPosition: {x: 25, y: 25}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &341180888
@@ -5294,7 +5294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 872, y: -308}
+  m_AnchoredPosition: {x: -30, y: 175}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1352655818
@@ -6153,10 +6153,10 @@ RectTransform:
   - {fileID: 1352655817}
   m_Father: {fileID: 1301247102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1476091883
 GameObject:
@@ -8700,7 +8700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 583, y: -440}
+  m_AnchoredPosition: {x: -300, y: 35}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1904526926
@@ -10259,6 +10259,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 3e4060d907cd50d499b3d225090d81d4, type: 2}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: m_Intensity
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
       objectReference: {fileID: 0}
@@ -10268,7 +10272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 1e-45
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.z
