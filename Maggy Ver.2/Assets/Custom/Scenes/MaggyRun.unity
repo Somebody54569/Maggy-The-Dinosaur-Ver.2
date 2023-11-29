@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10187,6 +10187,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1138758303}
     - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+      propertyPath: playerLight
+      value: 
+      objectReference: {fileID: 9206615424596584636}
+    - target: {fileID: 5942585870060990314, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: controlPanel
       value: 
       objectReference: {fileID: 1472655273}
@@ -10264,7 +10268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 92
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.x
@@ -10272,7 +10276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 88
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
       propertyPath: m_BoundingSphereOverride.z
@@ -10286,6 +10290,11 @@ PrefabInstance:
       addedObject: {fileID: 3949961497513127464}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+--- !u!108 &9206615424596584636 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 6025852796930023111, guid: 3aed16de4d9989444b6549122bd2c3fe, type: 3}
+  m_PrefabInstance: {fileID: 9206615424596584635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

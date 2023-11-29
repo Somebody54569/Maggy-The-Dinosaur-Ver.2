@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float eatDistance = 12.5f;
     [SerializeField] private float rotationSpeed = 5;
     [SerializeField] private float speedTakeHitDuration = 1.5f;
-    [SerializeField] private Light light;
+    [SerializeField] private Light playerLight;
 
     [Header("Jump")]
     [SerializeField] private bool isJumping = false;
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         LevelDistance.disRun = 0;
         currentHP = startHP;
         takeDamageFlash = GameObject.Find("PostProcessing").GetComponent<TakeDamageFlash>();
-        light.range = eatDistance;
+        playerLight.range = eatDistance;
         healthBar.SetMaxHealth(startHP);
         currentMoveSpeed = initialMoveSpeed;
         StartCoroutine(DecreaseHPOverTime());
@@ -269,12 +269,12 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(start, transform.forward, out RaycastHit hit, eatDistance, preyLayer))
         {
             Gizmos.color = Color.red;
-            light.color = Color.red;
+            playerLight.color = Color.red;
         }
         else
         {
             Gizmos.color = Color.green;
-            light.color = Color.green;
+            playerLight.color = Color.green;
         }
         Gizmos.DrawLine(start, end);
     }
@@ -397,7 +397,7 @@ public class PlayerMovement : MonoBehaviour
             cameraPanel.SetActive(false);
             controlPanel.SetActive(false);
             pausePanel.SetActive(false);
-            Destroy(light);
+            Destroy(playerLight);
             Destroy(playerMovement);
         }
     }
